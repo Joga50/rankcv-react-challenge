@@ -17,6 +17,9 @@ export default function Location() {
         type
         dimension
         created
+        residents {
+          name
+        }
       
       
       }
@@ -47,6 +50,7 @@ export default function Location() {
               tpye={location.type}
               dimension={location.dimension}
               created={location.created}
+              residents={location.residents}
             />
           ))}
         </ul>

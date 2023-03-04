@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logout from "./Logout";
 
 function NavBar() {
+  const currentUser = localStorage.getItem("currentUser");
   return (
     <div
       style={{
@@ -20,9 +22,9 @@ function NavBar() {
         <Link to="/characters">Characters</Link>
         <Link to="/episodes">Episodes</Link>
         <Link to="/locations">Locations</Link>
-        <Link to="/favorites">Favorites</Link>
+        {currentUser && <Link to="/favorites">Favorites</Link>}
       </div>
-      <button>Logout</button>
+      <Logout />
     </div>
   );
 }

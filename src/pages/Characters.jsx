@@ -50,6 +50,7 @@ export default function Characters() {
             <CharacterCard
               image={character.image}
               key={character.id}
+              id={character.id}
               name={character.name}
               species={character.species}
               status={character.status}

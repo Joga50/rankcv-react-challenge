@@ -8,6 +8,8 @@ import Characters from "./pages/Characters";
 import Episodes from "./pages/Episodes";
 import Locations from "./pages/Locations";
 import Favorites from "./pages/Favorites";
+import Home from "./components/Home";
+import React from "react";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/episodes" element={<Episodes />} />
           <Route path="/characters" element={<Characters />} />
