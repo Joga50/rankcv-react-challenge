@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Characters from "./pages/Characters";
 import Episodes from "./pages/Episodes";
 import Locations from "./pages/Locations";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/characters" element={<Characters />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
         <Footer />
       </Router>

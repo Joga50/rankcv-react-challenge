@@ -20,6 +20,7 @@ function NavBar() {
         <Link to="/characters">Characters</Link>
         <Link to="/episodes">Episodes</Link>
         <Link to="/locations">Locations</Link>
+        <Link to="/favorites">Favorites</Link>
       </div>
       <button>Logout</button>
     </div>
