@@ -1,15 +1,16 @@
 import "./App.css";
-import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Footer from "./components/Footer";
-import Characters from "./pages/Characters";
-import Episodes from "./pages/Episodes";
-import Locations from "./pages/Locations";
-import Favorites from "./pages/Favorites";
-import Home from "./components/Home";
+import Favorites from "./pages/Favorites/Favorites";
+import {
+  Home,
+  Locations,
+  Episodes,
+  Characters,
+  Register,
+  Login,
+} from "./pages";
 import React from "react";
+import { Footer, NavBar } from "./components";
 
 function App() {
   return (

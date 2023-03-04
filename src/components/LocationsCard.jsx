@@ -14,7 +14,10 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
   };
   const currentUser = localStorage.getItem("currentUser");
   return (
-    <div className="location-card" style={{ backgroundColor: "gray" }}>
+    <div
+      className="location-card"
+      style={{ backgroundColor: "gray", margin: "10px" }}
+    >
       LocationsCard
       <p>id : {id}</p>
       <p>Name: {name}</p>
@@ -23,7 +26,7 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
       <p>
         Residents:{" "}
         {residents?.map((resident) => (
-          <p>{resident.name}</p>
+          <span>{resident.name}</span>
         ))}
       </p>
       <p>#R: {residents.length}</p>

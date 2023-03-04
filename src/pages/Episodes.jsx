@@ -42,11 +42,13 @@ export default function Episodes() {
         <ul>
           {episodes.map((episode) => (
             <EpisodesCard
+              id={episode.id}
               key={episode.id}
               name={episode.name}
               air_date={episode.air_date}
               episode={episode.episode}
               created={episode.created}
+              url={episode.url}
             />
           ))}
         </ul>

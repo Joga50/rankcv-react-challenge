@@ -11,7 +11,7 @@ function EpisodesCard({
 }) {
   const addToFavorites = () => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    favorites.push({ type: "espisode", id });
+    favorites.push({ type: "episode", id });
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
     alert(`${name} adding to favorites`);
@@ -22,7 +22,10 @@ function EpisodesCard({
   };
   const currentUser = localStorage.getItem("currentUser");
   return (
-    <div className="eposides-card" style={{ backgroundColor: "gray" }}>
+    <div
+      className="eposides-card"
+      style={{ backgroundColor: "gray", margin: "10px" }}
+    >
       EpisodesCard
       <p>id: {id}</p>
       <p>Name: {name}</p>

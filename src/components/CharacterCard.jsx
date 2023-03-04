@@ -24,7 +24,10 @@ function CharacterCard({
   };
   const currentUser = localStorage.getItem("currentUser");
   return (
-    <div className="character-card" style={{ backgroundColor: "gray" }}>
+    <div
+      className="character-card"
+      style={{ backgroundColor: "gray", margin: "10px" }}
+    >
       <img src={image} alt={name} style={{ height: "200px", width: "200px" }} />
       <h2>id: {id}</h2>
       <h3>Name: {name}</h3>

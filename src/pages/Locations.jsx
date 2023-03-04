@@ -45,6 +45,7 @@ export default function Location() {
         <ul>
           {locations.map((location) => (
             <LocationsCard
+              id={location.id}
               key={location.id}
               name={location.name}
               tpye={location.type}
