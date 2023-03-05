@@ -78,7 +78,10 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container flex flex-col justify-center items-center">
+    <div
+      data-testid="register"
+      className="register-container flex flex-col justify-center items-center"
+    >
       <div
         className="bg-purple-600 rounded-lg shadow-md p-8"
         style={{ maxWidth: "50%" }}

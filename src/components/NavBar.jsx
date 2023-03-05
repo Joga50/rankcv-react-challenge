@@ -31,26 +31,26 @@ function NavBar() {
         <div className="text-md lg:flex-grow">
           <Link
             to="/characters"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
           >
             Characters
           </Link>
           <Link
             to="/episodes"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
           >
             Episodes
           </Link>
           <Link
             to="/locations"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
           >
             Locations
           </Link>
           {currentUser && (
             <Link
               to="/favorites"
-              className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4"
+              className="text-2sm font-bold text-white bg-gradient-to-r from-blue-800 to-blue-500  p-4 rounded-md shadow-lg m-5"
             >
               Favorites
             </Link>

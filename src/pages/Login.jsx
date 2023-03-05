@@ -16,13 +16,14 @@ const Login = () => {
 
   // FORM VALIDATION
 
-  const {
-    emailErrorLogin,
-    setEmailErrorLogin,
-    passwordErrorLogin,
-    setPasswordErrorLogin,
-  } = useContext(AuthContext);
-
+  // const {
+  //   emailErrorLogin,
+  //   setEmailErrorLogin,
+  //   passwordErrorLogin,
+  //   setPasswordErrorLogin,
+  // } = useContext(AuthContext);
+  const [emailErrorLogin, setEmailErrorLogin] = useState("");
+  const [passwordErrorLogin, setPasswordErrorLogin] = useState("");
   const handleLogin = () => {
     const actualUsers =
       JSON.parse(localStorage.getItem("registeredUsers")) || [];
@@ -48,7 +49,10 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container flex flex-col justify-center items-center">
+    <div
+      data-testid="login"
+      className="login-container flex flex-col justify-center items-center"
+    >
       <div className="bg-gradient-to-b from-green-600 to-green-500 rounded-lg p-5 w-1/2 mt-12">
         <h2 className="text-3xl font-bold text-white">Log in</h2>
 
@@ -64,6 +68,7 @@ const Login = () => {
               className="bg-white rounded-lg px-4 py-2 w-full"
               type="email"
               id="email"
+              placeholder="Email"
               value={email}
               onChange={handleEmailChange}
               required
@@ -77,6 +82,7 @@ const Login = () => {
               className="bg-white rounded-lg px-4 py-2 w-full"
               type="password"
               id="password"
+              placeholder="Password"
               value={password}
               onChange={handlePasswordChange}
               required
