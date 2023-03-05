@@ -10,17 +10,34 @@ function EpisodesCard({
   created,
 }) {
   const addToFavorites = () => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    favorites.push({ type: "episode", id });
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) {
+      logAlert();
+      return;
+    }
 
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    alert(`${name} adding to favorites`);
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    console.log("favorites:", favorites);
+    const isFavorite = favorites.find(
+      (favorite) => favorite.id === id && favorite.type === "episode"
+    );
+    if (isFavorite) {
+      itemExists();
+    } else {
+      favorites.push({ type: "episode", id });
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      alert(`${name} added to favorites`);
+    }
   };
 
   const logAlert = () => {
-    alert("You have to be logged to add espisodes to favorites!");
+    alert("you have to be logged to add cards to favorites");
   };
-  const currentUser = localStorage.getItem("currentUser");
+
+  const itemExists = () => {
+    alert("card already exist in you favorites folder");
+  };
+
   return (
     <div
       className="eposides-card"
@@ -33,9 +50,7 @@ function EpisodesCard({
       <p>Episode: {episode}</p>
       <p>Url: {url}</p>
       <p>Created: {created}</p>
-      <button onClick={currentUser ? addToFavorites : logAlert}>
-        Add to favorites
-      </button>
+      <button onClick={addToFavorites}>Agregar a Favoritos</button>
     </div>
   );
 }

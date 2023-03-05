@@ -10,8 +10,12 @@ const Register = () => {
 
   const [nameError, setNameError] = useState("");
 
-  const { emailError, setEmailError, passwordError, setPasswordError } =
-    useContext(AuthContext);
+  const {
+    passwordErrorRegister,
+    setPasswordErrorRegister,
+    emailErrorRegister,
+    setEmailErrorRegister,
+  } = useContext(AuthContext);
 
   const validateForm = () => {
     let isValid = true;
@@ -28,17 +32,19 @@ const Register = () => {
       (user) => user.email === email
     );
     if (isEmailRegistered) {
-      setEmailError("El correo electrónico está registrado");
+      setEmailErrorRegister("El correo electrónico está registrado");
       isValid = false;
     } else {
-      setEmailError("");
+      setEmailErrorRegister("");
     }
 
     if (password.length < 9) {
-      setPasswordError("La contraseña debe tener al menos 9 caracteres");
+      setPasswordErrorRegister(
+        "La contraseña debe tener al menos 9 caracteres"
+      );
       isValid = false;
     } else {
-      setPasswordError("");
+      setPasswordErrorRegister("");
     }
 
     return isValid;
@@ -97,7 +103,9 @@ const Register = () => {
             onChange={handleEmailChange}
             required
           />
-          {emailError && <p style={{ color: "red" }}>{emailError}</p>}
+          {emailErrorRegister && (
+            <p style={{ color: "red" }}>{emailErrorRegister}</p>
+          )}
         </div>
         <div>
           <label htmlFor="password">Contraseña:</label>
@@ -108,7 +116,9 @@ const Register = () => {
             onChange={handlePasswordChange}
             required
           />
-          {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}{" "}
+          {passwordErrorRegister && (
+            <p style={{ color: "red" }}>{passwordErrorRegister}</p>
+          )}{" "}
         </div>
         <button onClick={handleRegister}>Registrarse</button>
       </form>

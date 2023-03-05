@@ -2,15 +2,32 @@ import React from "react";
 
 function LocationsCard({ id, name, type, dimension, created, residents }) {
   const addToFavorites = () => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    favorites.push({ type: "location", id });
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) {
+      logAlert();
+      return;
+    }
 
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    alert(`${name} adding to favorites`);
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    console.log("favorites:", favorites);
+    const isFavorite = favorites.find(
+      (favorite) => favorite.id === id && favorite.type === "location"
+    );
+    if (isFavorite) {
+      itemExists();
+    } else {
+      favorites.push({ type: "location", id });
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      alert(`${name} added to favorites`);
+    }
   };
 
   const logAlert = () => {
-    alert("You have to be logged to add locations to favorites!");
+    alert("you have to be logged to add cards to favorites");
+  };
+
+  const itemExists = () => {
+    alert("card already exist in you favorites folder");
   };
   const currentUser = localStorage.getItem("currentUser");
   return (
@@ -31,9 +48,7 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
       </p>
       <p>#R: {residents.length}</p>
       <p>Createad at: {created}</p>
-      <button onClick={currentUser ? addToFavorites : logAlert}>
-        Add to favorites
-      </button>
+      <button onClick={addToFavorites}>Agregar a Favoritos</button>
     </div>
   );
 }
