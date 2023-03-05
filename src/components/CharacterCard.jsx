@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 function CharacterCard({
   id,
   name,
@@ -22,7 +21,27 @@ function CharacterCard({
   const logAlert = () => {
     alert("You have to be logged to add characters to favorites!");
   };
+
+  const itemExists = () => {
+    alert("Card already exists in your favorites");
+  };
   const currentUser = localStorage.getItem("currentUser");
+
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const favoritesStored = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(favoritesStored);
+  }, []);
+
+  const isFavorite = favorites.find(
+    (favorite) => favorite.id === id && favorite.type === "character"
+  );
+  if (isFavorite) {
+    // El objeto ya existe en el array
+  } else {
+    // El objeto no existe en el array
+  }
   return (
     <div
       className="character-card"
@@ -39,7 +58,7 @@ function CharacterCard({
       <p>Current location: {location}</p>
       {/* <p>Episode: {episode}</p> */}
 
-      <button onClick={currentUser ? addToFavorites : logAlert}>
+      <button onClick={() => (currentUser ? addToFavorites : logAlert)}>
         Add to Favorites
       </button>
     </div>

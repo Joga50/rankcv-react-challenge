@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,27 +13,44 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
+  // FORM VALIDATION
+
+  const { emailError, setEmailError, passwordError, setPasswordError } =
+    useContext(AuthContext);
+
   const handleLogin = () => {
     const actualUsers =
       JSON.parse(localStorage.getItem("registeredUsers")) || [];
-    const userExists = actualUsers.some(
-      (user) => user.email === email && user.password === password
-    );
 
-    if (userExists) {
+    const user = actualUsers.find((user) => user.email === email);
+    if (!user) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+
+    if (password.length < 8) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+
+    if (user && password.length >= 8 && user.password === password) {
       localStorage.setItem("currentUser", email);
       window.location.reload();
-    } else {
-      alert("Usuario o contraseña incorrectos.");
     }
   };
 
   return (
     <div>
       <h2>Iniciar sesión</h2>
+
+      {(passwordError || emailError) && (
+        <p style={{ color: "red" }}>email or password invalid</p>
+      )}
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
-          <label htmlFor="email">Correo electrónico:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -42,7 +60,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Contraseña:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
