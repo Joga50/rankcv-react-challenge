@@ -27,53 +27,50 @@ function NavBar() {
           />
         </Link>
       </div>
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div className="text-md lg:flex-grow">
+      <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-center">
+        <div className="flex flex-wrap justify-center lg:flex-nowrap">
           <Link
             to="/characters"
-            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-2 lg:m-5 hover:opacity-80"
           >
             Characters
           </Link>
           <Link
             to="/episodes"
-            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-2 lg:m-5 hover:opacity-80"
           >
             Episodes
           </Link>
           <Link
             to="/locations"
-            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-4 rounded-md shadow-lg m-2 lg:m-5 hover:opacity-80"
           >
             Locations
           </Link>
           {currentUser && (
             <Link
               to="/favorites"
-              className="text-2sm font-bold text-white bg-gradient-to-r from-blue-800 to-blue-500  p-4 rounded-md shadow-lg m-5"
+              className="text-2sm font-bold text-white bg-gradient-to-r from-blue-800 to-blue-500  p-4 rounded-md shadow-lg m-2 lg:m-5"
             >
               Favorites
             </Link>
           )}
         </div>
-        <div className="flex flex-col items-center lg:flex-row lg:justify-end lg:items-center">
+        <div className="flex items-center mt-4 lg:mt-0">
           <button
             onClick={handleToggleDarkMode}
-            className="icon-button lg:mr-8"
-            style={{ color: "white", margin: "15px" }}
+            className="icon-button mr-4"
+            style={{ color: "white" }}
           >
             <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
           </button>
           <Link
             to="/login"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4"
+            className="block text-gray-300 hover:text-white mr-4"
           >
             Login page
           </Link>
-          <Link
-            to="/register"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white"
-          >
+          <Link to="/register" className="block text-gray-300 hover:text-white">
             Register page
           </Link>
         </div>
