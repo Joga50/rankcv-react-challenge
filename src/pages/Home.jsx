@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="text-center blue-container home-container flex flex-col justify-center items-center sm:px-4 md:px-8 lg:px-16">
-      <h1 className="text-4xl font-bold text-red-500 mb-8">
+      <h1
+        className="text-4xl font-bold text-red-500 mb-8"
+        style={{ fontSize: "35px" }}
+      >
         Welcome to Rick and Morty's cards
       </h1>
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">

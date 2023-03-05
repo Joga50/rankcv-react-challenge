@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
+import { Link } from "react-router-dom";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // FORM VALIDATION
-
+  const registeredUsers =
+    JSON.parse(localStorage.getItem("registeredUsers")) || [];
   const [nameError, setNameError] = useState("");
 
   const {
@@ -76,12 +78,23 @@ const Register = () => {
     setEmail("");
     setPassword("");
   };
-
+  const currentUser = localStorage.getItem("currentUser");
   return (
     <div
       data-testid="register"
       className="register-container flex flex-col justify-center items-center"
     >
+      {registeredUsers.length >= 1 && (
+        <div style={{ margin: "40px" }}>
+          <Link
+            to="/login"
+            className="text-2sm font-bold text-white bg-gradient-to-r from-green-800 to-green-500 p-4 rounded-md shadow-lg m-2 md:m-5 hover:opacity-80"
+          >
+            Go to Login page
+          </Link>
+        </div>
+      )}
+
       <div
         className="bg-purple-600 rounded-lg shadow-md p-8"
         style={{ maxWidth: "50%" }}
