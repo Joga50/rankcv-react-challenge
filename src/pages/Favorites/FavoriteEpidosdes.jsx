@@ -39,11 +39,7 @@ function FavoriteEpisodes() {
   return (
     <div>
       {episodesData.map((favEp) => (
-        <div
-          className="episode-card"
-          style={{ backgroundColor: "gray", margin: "10px" }}
-          key={favEp.id}
-        >
+        <div className="episode-card" style={{ margin: "10px" }} key={favEp.id}>
           <p>id: {favEp.id}</p>
           <p>Name: {favEp.name}</p>
           <p>Air date: {favEp.air_date}</p>

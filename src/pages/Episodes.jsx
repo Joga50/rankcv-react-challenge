@@ -37,9 +37,9 @@ export default function Episodes() {
   if (error) return <pre>{error.message}</pre>;
 
   return (
-    <div>
+    <div className="episodes">
       {episodes.length > 0 && (
-        <ul>
+        <div className="episodes-container">
           {episodes.map((episode) => (
             <EpisodesCard
               id={episode.id}
@@ -51,7 +51,7 @@ export default function Episodes() {
               url={episode.url}
             />
           ))}
-        </ul>
+        </div>
       )}
       <button
         onClick={() => {

@@ -33,11 +33,11 @@ function CharacterCard({
   };
 
   const logAlert = () => {
-    alert("you have to be logged to add cards to favorites");
+    alert("You have to be logged to add cards to your favorites folder");
   };
 
   const itemExists = () => {
-    alert("card already exist in you favorites folder");
+    alert("This card already exist in you favorites folder");
   };
 
   const [favorites, setFavorites] = useState([]);
@@ -52,21 +52,19 @@ function CharacterCard({
   );
 
   return (
-    <div
-      className="character-card"
-      style={{ backgroundColor: "gray", margin: "10px" }}
-    >
+    <div className="character-card" style={{ margin: "10px" }}>
       <img src={image} alt={name} style={{ height: "200px", width: "200px" }} />
-      <h2>id: {id}</h2>
-      <h3>Nombre: {name}</h3>
-      <p>Especie: {species}</p>
-      <p>Estado: {status}</p>
-      <p>Género: {gender}</p>
-      <p>Origen: {origin}</p>
+      <div>
+        <h2>id: {id}</h2>
+        <h3>Name: {name}</h3>
+        <p>Species: {species}</p>
+        <p>Status: {status}</p>
+        <p>Gender: {gender}</p>
+        <p>Origin: {origin}</p>
 
-      <p>Ubicación actual: {location}</p>
-
-      <button onClick={addToFavorites}>Agregar a Favoritos</button>
+        <p>Current Location: {location}</p>
+      </div>
+      <button onClick={addToFavorites}>Add to favoritess</button>
     </div>
   );
 }

@@ -40,9 +40,9 @@ export default function Location() {
   if (error) return <pre>{error.message}</pre>;
 
   return (
-    <div>
+    <div className="locations">
       {locations.length > 0 && (
-        <ul>
+        <div className="locations-container">
           {locations.map((location) => (
             <LocationsCard
               id={location.id}
@@ -54,7 +54,7 @@ export default function Location() {
               residents={location.residents}
             />
           ))}
-        </ul>
+        </div>
       )}
       <button
         onClick={() => {

@@ -20,7 +20,7 @@ const Register = () => {
   const validateForm = () => {
     let isValid = true;
     if (name.length < 3) {
-      setNameError("name must have at least 3 characters");
+      setNameError("Name must have at least 3 characters");
       isValid = false;
     } else {
       setNameError("");
@@ -32,16 +32,14 @@ const Register = () => {
       (user) => user.email === email
     );
     if (isEmailRegistered) {
-      setEmailErrorRegister("El correo electrónico está registrado");
+      setEmailErrorRegister("The email address is already registered.");
       isValid = false;
     } else {
       setEmailErrorRegister("");
     }
 
     if (password.length < 9) {
-      setPasswordErrorRegister(
-        "La contraseña debe tener al menos 9 caracteres"
-      );
+      setPasswordErrorRegister("The password must have at least 9 characters.");
       isValid = false;
     } else {
       setPasswordErrorRegister("");
@@ -73,55 +71,66 @@ const Register = () => {
       JSON.parse(localStorage.getItem("registeredUsers")) || [];
     const newUsers = [...actualUsers, user];
     localStorage.setItem("registeredUsers", JSON.stringify(newUsers));
-    alert("Usuario registrado correctamente.");
+    alert("User registered successfully.");
     setName("");
     setEmail("");
     setPassword("");
   };
 
   return (
-    <div>
-      <h2>Registrarse</h2>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div>
-          <label htmlFor="name">Nombre:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={handleNameChange}
-            required
-          />
-          {nameError && <p style={{ color: "red" }}>{nameError}</p>}
-        </div>
-        <div>
-          <label htmlFor="email">Correo electrónico:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-          {emailErrorRegister && (
-            <p style={{ color: "red" }}>{emailErrorRegister}</p>
-          )}
-        </div>
-        <div>
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-          {passwordErrorRegister && (
-            <p style={{ color: "red" }}>{passwordErrorRegister}</p>
-          )}{" "}
-        </div>
-        <button onClick={handleRegister}>Registrarse</button>
-      </form>
+    <div className="register-container flex flex-col justify-center items-center">
+      <div
+        style={{
+          backgroundColor: "rgb(190,105,224)",
+          height: "auto",
+          width: "50%",
+          borderRadius: "1rem",
+
+          padding: "15px",
+        }}
+      >
+        <h2>Register</h2>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={handleNameChange}
+              required
+            />
+            {nameError && <p style={{ color: "red" }}>{nameError}</p>}
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+            {emailErrorRegister && (
+              <p style={{ color: "red" }}>{emailErrorRegister}</p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+            />
+            {passwordErrorRegister && (
+              <p style={{ color: "red" }}>{passwordErrorRegister}</p>
+            )}{" "}
+          </div>
+          <button onClick={handleRegister}>Register</button>
+        </form>
+      </div>
     </div>
   );
 };

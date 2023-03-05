@@ -46,7 +46,7 @@ function FavoriteLocations() {
       {locationsData.map((favLoc) => (
         <div
           className="locations-card"
-          style={{ backgroundColor: "gray", margin: "10px" }}
+          style={{ margin: "10px" }}
           key={favLoc.id}
         >
           <p> key={favLoc.id}</p>

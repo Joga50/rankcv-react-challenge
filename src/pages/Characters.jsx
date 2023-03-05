@@ -43,9 +43,9 @@ export default function Characters() {
   if (error) return <pre>{error.message}</pre>;
 
   return (
-    <div>
+    <div className="characters">
       {characters.length > 0 && (
-        <ul>
+        <div className="characters-container">
           {characters.map((character) => (
             <CharacterCard
               image={character.image}
@@ -60,7 +60,7 @@ export default function Characters() {
               // episode={character.episode}
             />
           ))}
-        </ul>
+        </div>
       )}
       <button
         onClick={() => {

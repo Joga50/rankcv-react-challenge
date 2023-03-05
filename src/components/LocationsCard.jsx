@@ -31,12 +31,8 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
   };
   const currentUser = localStorage.getItem("currentUser");
   return (
-    <div
-      className="location-card"
-      style={{ backgroundColor: "gray", margin: "10px" }}
-    >
-      <p>id: {id}</p>
-      <p>Name: {name}</p>
+    <div className="location-card" style={{ margin: "10px" }}>
+      <h3>Name: {name}</h3>
       <p>Type: {type}</p>
       <p>Dimension: {dimension}</p>
       <p>
@@ -47,7 +43,7 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
       </p>
       <p>#R: {residents.length}</p>
       <p>Createad at: {created}</p>
-      <button onClick={addToFavorites}>Agregar a Favoritos</button>
+      <button onClick={addToFavorites}>Add to favorites</button>
     </div>
   );
 }
