@@ -54,9 +54,10 @@
 /* card -- */
 
 .characters-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .episodes-container {
   display: flex;
@@ -65,8 +66,9 @@
 }
 .locations-container {
   display: flex;
-  flex-direction: column;
-  flex-flow: wrap;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .favorites-container {
   display: flex;

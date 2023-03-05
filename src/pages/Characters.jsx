@@ -81,7 +81,7 @@ export default function Characters() {
       </div>
 
       {characters.length > 0 && (
-        <div className="characters-container">
+        <div className="characters-container grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {characters.map((character) => (
             <CharacterCard
               image={character.image}
@@ -93,7 +93,6 @@ export default function Characters() {
               origin={character.origin.name}
               gender={character.gender}
               location={character.location.name}
-              // episode={character.episode}
             />
           ))}
         </div>

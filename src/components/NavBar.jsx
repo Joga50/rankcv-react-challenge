@@ -5,6 +5,7 @@ import { toggleDarkMode } from "../redux/features/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+
 function NavBar() {
   const currentUser = localStorage.getItem("currentUser");
 
@@ -16,7 +17,7 @@ function NavBar() {
   };
 
   return (
-    <div className="flex items-center justify-between flex-wrap  p-5 navbar">
+    <nav className="flex items-center justify-between flex-wrap p-5 navbar">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
           <img
@@ -55,11 +56,11 @@ function NavBar() {
             </Link>
           )}
         </div>
-        <div>
+        <div className="flex flex-col items-center lg:flex-row lg:justify-end lg:items-center">
           <button
             onClick={handleToggleDarkMode}
-            className="icon-button"
-            style={{ marginRight: "20px", color: "white" }}
+            className="icon-button lg:mr-8"
+            style={{ color: "white", margin: "15px" }}
           >
             <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
           </button>
@@ -79,8 +80,7 @@ function NavBar() {
       </div>
 
       <Logout />
-    </div>
+    </nav>
   );
 }
-
 export default NavBar;
