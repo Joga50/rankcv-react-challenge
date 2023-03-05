@@ -61,7 +61,7 @@ function FavoriteCharacters() {
     <div>
       {charactersData.map((favChar) => (
         <div
-          className="character-card"
+          className="character-card text-gray-800 font-medium"
           style={{ margin: "10px" }}
           key={favChar.id}
         >
@@ -70,7 +70,7 @@ function FavoriteCharacters() {
             alt={favChar.name}
             style={{ height: "200px", width: "200px" }}
           />
-          <h2>id: {favChar.id}</h2>
+
           <h3>Name: {favChar.name}</h3>
           <p>Species: {favChar.species}</p>
           <p>Status: {favChar.status}</p>
@@ -78,6 +78,7 @@ function FavoriteCharacters() {
           <p>Origin: {favChar.origin.name}</p>
 
           <p>Current location: {favChar.location.name}</p>
+          <h2>id: {favChar.id}</h2>
           <button onClick={() => handleRemoveClick(favChar.id)}>
             Remove from favorites
           </button>

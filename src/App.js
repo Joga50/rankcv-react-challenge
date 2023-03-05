@@ -12,12 +12,33 @@ import {
 import React from "react";
 import { Footer, NavBar } from "./components";
 import { AuthProvider } from "./AuthContext";
-
+import { configureStore } from "@reduxjs/toolkit";
+import { toggleDarkMode } from "../src/redux/features/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 function App() {
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+
+  const handleToggleDarkMode = () => {
+    dispatch(toggleDarkMode());
+  };
+
+  const [themeClass, setThemeClass] = useState("");
+
+  useEffect(() => {
+    if (isDarkMode) {
+      setThemeClass("dark");
+    } else {
+      setThemeClass("");
+    }
+  }, [isDarkMode]);
+
   return (
-    <div className="App">
+    <div className={`App ${themeClass}`}>
       <Router>
-        <NavBar />
+        <NavBar isDarkMode={isDarkMode} toggleDarkMode={handleToggleDarkMode} />
+
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Home />} />

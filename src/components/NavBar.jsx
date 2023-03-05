@@ -1,9 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "./Logout";
-import { GiPortal } from "react-icons/gi";
+import { toggleDarkMode } from "../redux/features/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 function NavBar() {
   const currentUser = localStorage.getItem("currentUser");
+
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const dispatch = useDispatch();
+
+  const handleToggleDarkMode = () => {
+    dispatch(toggleDarkMode());
+  };
+
   return (
     <div className="flex items-center justify-between flex-wrap  p-5 navbar">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -45,6 +56,13 @@ function NavBar() {
           )}
         </div>
         <div>
+          <button
+            onClick={handleToggleDarkMode}
+            className="icon-button"
+            style={{ marginRight: "20px", color: "white" }}
+          >
+            <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+          </button>
           <Link
             to="/login"
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4"

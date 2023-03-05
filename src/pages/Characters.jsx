@@ -39,16 +39,20 @@ export default function Characters() {
     [data]
   );
 
-  if (loading) return "Loading...";
+  if (loading)
+    return (
+      <p className="text-4xl font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-6 rounded-md shadow-lg m-5">
+        Loading...
+      </p>
+    );
   if (error) return <pre>{error.message}</pre>;
 
   return (
     <div className="characters">
       <div
         style={{
-          backgroundImage:
-            "url('https://wallpaperaccess.com/full/1276401.jpg')",
           padding: "10px",
+          marginTop: "20px",
         }}
       >
         <button

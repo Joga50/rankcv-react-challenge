@@ -16,7 +16,7 @@ function Favorites() {
               <h1 className="text-4xl font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-6 rounded-md shadow-lg m-5">
                 Favorites
               </h1>
-              <h1 className="text-2xl font-serif tracking-wider text-gray-800 m-10">
+              <h1 className="text-1xl font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-6 rounded-md shadow-lg m-5">
                 Please select a filter, if you want to check your favorite cards
                 by category:{" "}
               </h1>

@@ -31,17 +31,28 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
   };
   const currentUser = localStorage.getItem("currentUser");
   return (
-    <div className="location-card" style={{ margin: "10px" }}>
+    <div
+      className="location-card  text-gray-800 font-medium"
+      style={{ margin: "10px" }}
+    >
       <h3>Name: {name}</h3>
       <p>Type: {type}</p>
       <p>Dimension: {dimension}</p>
-      <p>
-        Residents:{" "}
+      <p style={{ textAlign: "left", fontWeight: "bold" }}>Residents: </p>
+      <ul
+        className="bg-gradient-to-r from-blue-400 to-indigo-500 inline-block"
+        style={{
+          background: "linear-gradient(to right, #d7b8ff, #a695e7)",
+          textAlign: "left",
+          borderRadius: "1em",
+          padding: "5px",
+        }}
+      >
         {residents?.map((resident, index) => (
-          <span key={index}>{resident.name}</span>
+          <li key={index}>{resident.name}</li>
         ))}
-      </p>
-      <p>#R: {residents.length}</p>
+      </ul>
+      <p>Number of residents: {residents.length}</p>
       <p>Createad at: {created}</p>
       <button onClick={addToFavorites}>Add to favorites</button>
     </div>

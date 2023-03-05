@@ -39,12 +39,15 @@ function EpisodesCard({
   };
 
   return (
-    <div className="episode-card" style={{ margin: "10px" }}>
-      <h2>id: {id}</h2>
+    <div
+      className="episode-card  text-gray-800 font-medium"
+      style={{ margin: "10px" }}
+    >
       <h3>Name: {name}</h3>
       <p>Air date: {air_date}</p>
       <p>Episode: {episode}</p>
       <p>Created: {created}</p>
+      <h2>id: {id}</h2>
       <button onClick={addToFavorites}>Add to favorites</button>
     </div>
   );

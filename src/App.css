@@ -4,6 +4,11 @@
 .navbar {
   background: linear-gradient(to bottom, #8a2be2, #4747ae);
 }
+/* theme  */
+.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
 /* backgrounds images  */
 
 .login-container {
@@ -13,29 +18,21 @@
   position: relative;
 }
 .episodes-container {
-  background-image: url("https://wallpaperaccess.com/full/1276401.jpg");
-  background-size: cover;
   height: auto;
   position: relative;
 }
 
 .locations-container {
-  background-image: url("https://wallpaperaccess.com/full/1276401.jpg");
-  background-size: cover;
   height: auto;
   position: relative;
 }
 
 .favorites-container {
-  background-image: url("https://wallpaperaccess.com/full/1276401.jpg");
-  background-size: cover;
   height: auto;
   position: relative;
 }
 
 .characters-container {
-  background-image: url("https://wallpaperaccess.com/full/1276401.jpg");
-  background-size: cover;
   height: auto;
   position: relative;
 }
@@ -233,4 +230,37 @@
   bottom: 0;
   width: 100%;
   background: linear-gradient(to bottom, #8a2be2, #4747ae);
+}
+
+/* Media queries  */
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  flex: 1 0 25%; /* Set the width of each column to 25% */
+  margin: 0 1rem 2rem;
+}
+
+/* Estilos para pantallas de 400px a 800px */
+@media (min-width: 400px) and (max-width: 800px) {
+  .product-card {
+    flex-basis: 50%; /* Set the width of each column to 50% */
+  }
+}
+
+/* Estilos para pantallas de 801px a 1200px */
+@media (min-width: 801px) and (max-width: 1200px) {
+  .product-card {
+    flex-basis: 33.33%; /* Set the width of each column to 33.33% */
+  }
+}
+
+/* Estilos para pantallas de 1201px a 1920px */
+@media (min-width: 1201px) and (max-width: 1920px) {
+  .product-card {
+    flex-basis: 25%; /* Set the width of each column to 25% */
+  }
 }

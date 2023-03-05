@@ -37,7 +37,8 @@ function FavoriteLocations() {
 
   const { data, error, loading } = useQuery(favoriteLocationsQuery);
   const locationsData = data?.locationsByIds;
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return <p className="text-2xl bg-purple-500 text-white p-4">Loading...</p>;
   if (error) return <p></p>;
   console.log(data, locationsData);
 
@@ -45,16 +46,16 @@ function FavoriteLocations() {
     <div>
       {locationsData.map((favLoc) => (
         <div
-          className="locations-card"
+          className="location-card text-gray-800 font-medium"
           style={{ margin: "10px" }}
           key={favLoc.id}
         >
-          <p> key={favLoc.id}</p>
-          <p> name={favLoc.name}</p>
-          <p> tpye={favLoc.type}</p>
-          <p> dimension={favLoc.dimension}</p>
-          <p> created={favLoc.created}</p>
-          <p> residents={favLoc.residents.map((resident) => resident.name)}</p>
+          <p> Name: {favLoc.name}</p>
+          <p> Type: {favLoc.type}</p>
+          <p> Dimension: {favLoc.dimension}</p>
+          <p> Created: {favLoc.created}</p>
+          <p> Residents: {favLoc.residents.map((resident) => resident.name)}</p>
+          <p> id: {favLoc.id}</p>
           <button>Remove from favorites</button>
         </div>
       ))}

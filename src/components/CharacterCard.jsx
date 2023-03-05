@@ -52,10 +52,12 @@ function CharacterCard({
   );
 
   return (
-    <div className="character-card" style={{ margin: "10px" }}>
+    <div
+      className="character-card text-gray-800 font-medium"
+      style={{ margin: "10px" }}
+    >
       <img src={image} alt={name} style={{ height: "200px", width: "200px" }} />
       <div>
-        <h2>id: {id}</h2>
         <h3>Name: {name}</h3>
         <p>Species: {species}</p>
         <p>Status: {status}</p>
@@ -63,8 +65,9 @@ function CharacterCard({
         <p>Origin: {origin}</p>
 
         <p>Current Location: {location}</p>
+        <h2>id: {id}</h2>
       </div>
-      <button onClick={addToFavorites}>Add to favoritess</button>
+      <button onClick={addToFavorites}>Add to favorites</button>
     </div>
   );
 }
