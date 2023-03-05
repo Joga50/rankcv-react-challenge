@@ -80,31 +80,33 @@ const Register = () => {
   return (
     <div className="register-container flex flex-col justify-center items-center">
       <div
-        style={{
-          backgroundColor: "rgb(190,105,224)",
-          height: "auto",
-          width: "50%",
-          borderRadius: "1rem",
-
-          padding: "15px",
-        }}
+        className="bg-purple-600 rounded-lg shadow-md p-8"
+        style={{ maxWidth: "50%" }}
       >
-        <h2>Register</h2>
+        <h2 className="text-2xl font-bold mb-4">Register</h2>
         <form onSubmit={(e) => e.preventDefault()}>
-          <div>
-            <label htmlFor="name">Name:</label>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-white font-bold mb-2">
+              Name:
+            </label>
             <input
+              className="appearance-none bg-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               type="text"
               id="name"
               value={name}
               onChange={handleNameChange}
               required
             />
-            {nameError && <p style={{ color: "red" }}>{nameError}</p>}
+            {nameError && (
+              <p className="text-red-500 text-xs italic">{nameError}</p>
+            )}
           </div>
-          <div>
-            <label htmlFor="email">Email:</label>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-white font-bold mb-2">
+              Email:
+            </label>
             <input
+              className="appearance-none bg-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               type="email"
               id="email"
               value={email}
@@ -112,12 +114,20 @@ const Register = () => {
               required
             />
             {emailErrorRegister && (
-              <p style={{ color: "red" }}>{emailErrorRegister}</p>
+              <p className="text-red-500 text-xs italic">
+                {emailErrorRegister}
+              </p>
             )}
           </div>
-          <div>
-            <label htmlFor="password">Password:</label>
+          <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block text-white font-bold mb-2"
+            >
+              Password:
+            </label>
             <input
+              className="appearance-none bg-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               type="password"
               id="password"
               value={password}
@@ -125,10 +135,17 @@ const Register = () => {
               required
             />
             {passwordErrorRegister && (
-              <p style={{ color: "red" }}>{passwordErrorRegister}</p>
-            )}{" "}
+              <p className="text-red-500 text-xs italic">
+                {passwordErrorRegister}
+              </p>
+            )}
           </div>
-          <button onClick={handleRegister}>Register</button>
+          <button
+            className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded"
+            onClick={handleRegister}
+          >
+            Register
+          </button>
         </form>
       </div>
     </div>

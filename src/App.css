@@ -78,7 +78,7 @@
   justify-content: center;
 }
 .character-card {
-  background: linear-gradient(to bottom, #a978d7, #4747ae);
+  background: linear-gradient(to bottom, #d3c3e2, #4747ae);
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(141, 172, 80, 0.3);

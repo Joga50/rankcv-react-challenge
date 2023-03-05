@@ -49,25 +49,19 @@ const Login = () => {
 
   return (
     <div className="login-container flex flex-col justify-center items-center">
-      <div
-        style={{
-          backgroundColor: "rgb(110,152,14)",
-          height: "auto",
-          width: "50%",
-          borderRadius: "1rem",
-          margin: "5px",
-          padding: "15px",
-        }}
-      >
-        <h2>Log in</h2>
+      <div className="bg-gradient-to-b from-green-600 to-green-500 rounded-lg p-5 w-1/2 mt-12">
+        <h2 className="text-3xl font-bold text-white">Log in</h2>
 
         {(passwordErrorLogin || emailErrorLogin) && (
-          <p style={{ color: "red" }}>Invalids credentials</p>
+          <p className="text-red-500 ">Invalid credentials</p>
         )}
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" className="text-xl text-white mb-3 block">
+              Email:
+            </label>
             <input
+              className="bg-white rounded-lg px-4 py-2 w-full"
               type="email"
               id="email"
               value={email}
@@ -76,14 +70,11 @@ const Login = () => {
             />
           </div>
           <div>
-            <label
-              className="text-lg font-medium text-gray-800 mb-2 block"
-              htmlFor="password"
-            >
+            <label htmlFor="password" className="text-xl text-white mb-3 block">
               Password:
             </label>
             <input
-              className="border border-gray-400 px-4 py-2 rounded-lg w-72"
+              className="bg-white rounded-lg px-4 py-2 w-full"
               type="password"
               id="password"
               value={password}
@@ -93,27 +84,35 @@ const Login = () => {
           </div>
 
           <button
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+            className="bg-red-500 hover:bg-red-600 text-white mt-3 px-4 py-2 rounded-lg"
             onClick={handleLogin}
           >
             Log in
           </button>
         </form>
       </div>
-      <div
-        style={{
-          backgroundColor: "rgb(110,152,14)",
-          height: "auto",
-          width: "50%",
-          borderRadius: "1rem",
-          margin: "5px",
-          padding: "15px",
-        }}
-      >
-        <h1>Go and check all the different cards:</h1>
-        <Link to="/characters">Character cards</Link>
-        <Link to="/locations">Locations cards</Link>
-        <Link to="/episodes">Episodes cards</Link>
+      <div className="bg-gradient-to-b from-green-600 to-green-500 rounded-lg p-5 w-1/2 mt-5">
+        <h1 className="text-3xl font-bold text-white">
+          Go and check all the different cards:
+        </h1>
+        <Link
+          to="/characters"
+          className="text-xl text-white block mb-3 hover:text-gray-300"
+        >
+          Character cards
+        </Link>
+        <Link
+          to="/locations"
+          className="text-xl text-white block mb-3 hover:text-gray-300"
+        >
+          Locations cards
+        </Link>
+        <Link
+          to="/episodes"
+          className="text-xl text-white block mb-3 hover:text-gray-300"
+        >
+          Episodes cards
+        </Link>
       </div>
     </div>
   );

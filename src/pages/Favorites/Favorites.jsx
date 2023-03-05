@@ -13,13 +13,17 @@ function Favorites() {
         <div>
           <div className="favorites-container">
             <div>
-              <h1>
+              <h1 className="text-4xl font-bold text-white bg-gradient-to-r from-purple-800 to-purple-500 p-6 rounded-md shadow-lg m-5">
+                Favorites
+              </h1>
+              <h1 className="text-2xl font-serif tracking-wider text-gray-800 m-10">
                 Please select a filter, if you want to check your favorite cards
                 by category:{" "}
               </h1>
+
               <select
-                className="bg-purple-500 text-white p-2 rounded-md text-sm"
-                style={{ height: "80px", width: "150px" }}
+                className="bg-purple-500 text-white p-2 rounded-md text-sm m-5"
+                style={{ height: "50px", width: "150px" }}
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
               >
@@ -32,13 +36,15 @@ function Favorites() {
             {filter === "" && (
               <>
                 <FavoriteCharacters />
-                <FavoriteLocations />
+
                 <FavoriteEpisodes />
+                <FavoriteLocations />
               </>
             )}
             {filter === "characters" && <FavoriteCharacters />}
-            {filter === "locations" && <FavoriteLocations />}
+
             {filter === "episodes" && <FavoriteEpisodes />}
+            {filter === "locations" && <FavoriteLocations />}
           </div>
         </div>
       ) : (

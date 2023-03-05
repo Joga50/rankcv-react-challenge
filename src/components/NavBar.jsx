@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "./Logout";
-
+import { GiPortal } from "react-icons/gi";
 function NavBar() {
   const currentUser = localStorage.getItem("currentUser");
   return (
     <div className="flex items-center justify-between flex-wrap  p-5 navbar">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
-          <span className="font-semibold text-xl tracking-tight text-gray-300">
-            Home
-          </span>
+          <img
+            src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
+            alt="Rick and Morty"
+            style={{ height: "110px", width: "110" }}
+          />
         </Link>
       </div>
       <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
