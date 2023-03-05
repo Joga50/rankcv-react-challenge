@@ -46,7 +46,7 @@ function Home() {
               Already have an account?{" "}
               <Link
                 className="text-gray-800 mb-4 font-bold"
-                to="/"
+                to="/login"
                 style={{ textDecoration: "underline" }}
               >
                 Log in

@@ -1,8 +1,8 @@
 # Title: React Challenge - Rick and Morty Visor
 
-# Deployment
+# Deployment (Vercel)
 
-Check the demo:
+Check the demo: https://react-challenge-joga50.vercel.app/
 
 # Introduction:
 

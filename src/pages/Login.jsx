@@ -16,12 +16,6 @@ const Login = () => {
 
   // FORM VALIDATION
 
-  // const {
-  //   emailErrorLogin,
-  //   setEmailErrorLogin,
-  //   passwordErrorLogin,
-  //   setPasswordErrorLogin,
-  // } = useContext(AuthContext);
   const [emailErrorLogin, setEmailErrorLogin] = useState("");
   const [passwordErrorLogin, setPasswordErrorLogin] = useState("");
   const handleLogin = () => {
@@ -47,12 +41,53 @@ const Login = () => {
       window.location.reload();
     }
   };
-
+  const currentUser = localStorage.getItem("currentUser");
   return (
     <div
       data-testid="login"
       className="login-container flex flex-col justify-center items-center"
     >
+      {currentUser && (
+        <div
+          className="bg-gradient-to-b from-green-600 to-green-500 rounded-lg p-5 w-1/2 mt-5"
+          style={{
+            width: "auto",
+            height: "200px",
+            display: "flex",
+            flexDirection: "column",
+            marginTop: "30px",
+          }}
+        >
+          <h1 className="text-3xl font-bold text-white">
+            Now that you are logged in, Go and check all the different cards:
+          </h1>
+          <div
+            style={{
+              marginTop: "50px",
+            }}
+          >
+            <Link
+              to="/characters"
+              className="text-2sm font-bold text-white bg-gradient-to-r from-green-800 to-green-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
+            >
+              Character cards
+            </Link>
+            <Link
+              style={{ marginTop: "30px" }}
+              to="/locations"
+              className="text-2sm font-bold text-white bg-gradient-to-r from-green-800 to-green-500 p-4 rounded-md  shadow-lg  hover:opacity-80"
+            >
+              Locations cards
+            </Link>
+            <Link
+              to="/episodes"
+              className="text-2sm font-bold text-white bg-gradient-to-r from-green-800 to-green-500 p-4 rounded-md shadow-lg m-5 hover:opacity-80"
+            >
+              Episodes cards
+            </Link>
+          </div>
+        </div>
+      )}
       <div className="bg-gradient-to-b from-green-600 to-green-500 rounded-lg p-5 w-1/2 mt-12">
         <h2 className="text-3xl font-bold text-white">Log in</h2>
 
@@ -96,29 +131,6 @@ const Login = () => {
             Log in
           </button>
         </form>
-      </div>
-      <div className="bg-gradient-to-b from-green-600 to-green-500 rounded-lg p-5 w-1/2 mt-5">
-        <h1 className="text-3xl font-bold text-white">
-          Go and check all the different cards:
-        </h1>
-        <Link
-          to="/characters"
-          className="text-xl text-white block mb-3 hover:text-gray-300"
-        >
-          Character cards
-        </Link>
-        <Link
-          to="/locations"
-          className="text-xl text-white block mb-3 hover:text-gray-300"
-        >
-          Locations cards
-        </Link>
-        <Link
-          to="/episodes"
-          className="text-xl text-white block mb-3 hover:text-gray-300"
-        >
-          Episodes cards
-        </Link>
       </div>
     </div>
   );
