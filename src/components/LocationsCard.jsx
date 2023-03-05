@@ -35,15 +35,14 @@ function LocationsCard({ id, name, type, dimension, created, residents }) {
       className="location-card"
       style={{ backgroundColor: "gray", margin: "10px" }}
     >
-      LocationsCard
-      <p>id : {id}</p>
+      <p>id: {id}</p>
       <p>Name: {name}</p>
       <p>Type: {type}</p>
       <p>Dimension: {dimension}</p>
       <p>
         Residents:{" "}
-        {residents?.map((resident) => (
-          <span>{resident.name}</span>
+        {residents?.map((resident, index) => (
+          <span key={index}>{resident.name}</span>
         ))}
       </p>
       <p>#R: {residents.length}</p>

@@ -16,14 +16,6 @@ function FavoriteLocations() {
     [favorites]
   );
 
-  // const handleRemoveFavorite = ({ id, type }) => {
-  //   const updatedFavorites = favorites.filter(
-  //     (favorite) => favorite.id !== id && favorite.type !== type
-  //   );
-  //   localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  //   setFavorites(updatedFavorites);
-  // };
-
   let favoriteLocationsQuery = gql`
   query 
   { 
@@ -46,7 +38,7 @@ function FavoriteLocations() {
   const { data, error, loading } = useQuery(favoriteLocationsQuery);
   const locationsData = data?.locationsByIds;
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
+  if (error) return <p></p>;
   console.log(data, locationsData);
 
   return (

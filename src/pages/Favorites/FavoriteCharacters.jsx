@@ -8,6 +8,21 @@ function FavoriteCharacters() {
     const favoritesStored = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(favoritesStored);
   }, []);
+
+  // Remove from favorites
+  const removeFromFavorites = (id) => {
+    const updatedFavorites = favorites.filter(
+      (item) => !(item.id === id && item.type === "character")
+    );
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
+  const handleRemoveClick = (id) => {
+    removeFromFavorites(id);
+  };
+  // --
+
   const favoriteCharactersIds = React.useMemo(
     () =>
       favorites
@@ -40,8 +55,8 @@ function FavoriteCharacters() {
   const { data, error, loading } = useQuery(favoriteCharactersQuery);
   const charactersData = data?.charactersByIds;
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
-  console.log(data, charactersData);
+  if (error) return <p></p>;
+
   return (
     <div>
       {charactersData.map((favChar) => (
@@ -63,7 +78,9 @@ function FavoriteCharacters() {
           <p>Origin: {favChar.origin.name}</p>
 
           <p>Current location: {favChar.location.name}</p>
-          <button>Remove from favorites</button>
+          <button onClick={() => handleRemoveClick(favChar.id)}>
+            Eliminar de favoritos
+          </button>
         </div>
       ))}
     </div>

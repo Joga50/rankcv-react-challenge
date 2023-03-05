@@ -33,7 +33,7 @@ function FavoriteEpisodes() {
   const { data, error, loading } = useQuery(favoriteEpisodesQuery);
   const episodesData = data?.episodesByIds;
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
+  if (error) return <p></p>;
 
   console.log(data, episodesData);
   return (

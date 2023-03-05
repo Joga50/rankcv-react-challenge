@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -76,6 +77,12 @@ const Login = () => {
         </div>
         <button onClick={handleLogin}>Iniciar sesión</button>
       </form>
+      <div>
+        <h1>Go and check all the different cards:</h1>
+        <Link to="/characters">Character cards</Link>
+        <Link to="/locations">Locations cards</Link>
+        <Link to="/episodes">Episodes cards</Link>
+      </div>
     </div>
   );
 };
